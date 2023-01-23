@@ -25,10 +25,16 @@ export function TodoApp() {
       updateTodo(todo)
    }
 
+   const onUpdateTodo = (todoId, title) => {
+      const todo = todos.find(todo => todo.id === todoId)
+      todo.title = title
+      updateTodo(todo)
+   }
+
    return <main className="todo-app main-layout">
       <div>
          <h1>TodoList</h1>
-         < TodoList todos={todos} onToggleTodo={onToggleTodo} onAddTodo={addTodo} onRemoveTodo={removeTodo} />
+         < TodoList todos={todos} onToggleTodo={onToggleTodo} onAddTodo={addTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
       </div>
    </main>
 }
