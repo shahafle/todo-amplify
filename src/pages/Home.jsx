@@ -38,7 +38,6 @@ export function Home() {
          await login(user)
          navigate('/todo')
       } catch (err) {
-         console.log(err);
          setAuthError(err.message)
       }
    }
@@ -49,7 +48,6 @@ export function Home() {
          await signup(user)
          setStep(2)
       } catch (err) {
-         console.log(err)
          setAuthError(err.message)
       }
 
@@ -57,12 +55,10 @@ export function Home() {
 
    const onConfirmSignup = async (ev) => {
       ev.preventDefault()
-
       try {
          await confirmSignup(user)
          navigate('/todo')
       } catch (err) {
-         console.log(err)
          setAuthError(err.message)
       }
    }

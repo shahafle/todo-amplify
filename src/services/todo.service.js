@@ -1,10 +1,12 @@
 import { API, graphqlOperation } from 'aws-amplify'
 import { listTodos } from '../graphql/queries'
-import { createTodo } from '../graphql/mutations'
+import { createTodo, deleteTodo, updateTodo } from '../graphql/mutations'
 
 export const todoService = {
    query,
-   add
+   add,
+   update,
+   remove
 }
 
 async function query() {
@@ -19,5 +21,15 @@ async function add(title) {
    }
    const todoData = await API.graphql(graphqlOperation(createTodo, { input: todo }))
    return todoData.data.createTodo
+}
 
+async function update(todo) {
+   const { id, title, isCompleted } = todo
+   const todoData = await API.graphql(graphqlOperation(updateTodo, { input: { id, title, isCompleted } }))
+   return todoData.data.updateTodo
+}
+
+async function remove(todo) {
+   const todoData = await API.graphql(graphqlOperation(deleteTodo, { input: todo }))
+   return todoData.data.deleteTodo
 }

@@ -11,13 +11,14 @@ export const userService = {
 
 async function signup(credentials) {
    const { username, password, email, phone } = credentials
-   const { user: cognitoUser } = await Auth.signUp({
+   const signUpData = await Auth.signUp({
       username, password, attributes: { email, phone_number: phone },
       autoSignIn: {
          enabled: true,
       }
    })
-   return { username, password, attributes: { email, phone_number: phone }, userConfirmed: cognitoUser.userConfirmed }
+   const { user: cognitoUser, userConfirmed } = signUpData
+   return { username, password, attributes: { email, phone_number: phone }, userConfirmed }
 }
 
 async function confirmSignup(credentials) {

@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import { API, graphqlOperation } from 'aws-amplify'
-
-import { TodoList } from "../cmps/TodoApp/TodoList";
-
-import { useNavigate } from 'react-router-dom/dist';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { addTodo, loadTodos } from '../store/todo.action';
+import { useNavigate } from 'react-router-dom/dist';
+//CMPS
+import { TodoList } from "../cmps/TodoApp/TodoList";
+//JS
+import { addTodo, loadTodos, updateTodo } from '../store/todo.action';
 
 
 export function TodoApp() {
@@ -23,18 +22,14 @@ export function TodoApp() {
    const toggleTodo = async (todoId) => {
       const todo = todos.find(todo => todo.id === todoId)
       todo.isCompleted = !todo.isCompleted
-      // const updatedTodo = await API.graphql(graphqlOperation(UpdateTodo, { input: todo }))
-   }
-
-   const onAddTodo = (title) => {
-      addTodo(title)
+      updateTodo(todo)
    }
 
 
    return <main className="todo-app main-layout">
       <div>
          <h1>TodoList</h1>
-         < TodoList todos={todos} toggleTodo={toggleTodo} onAddTodo={onAddTodo} />
+         < TodoList todos={todos} toggleTodo={toggleTodo} onAddTodo={addTodo} />
       </div>
    </main>
 }
