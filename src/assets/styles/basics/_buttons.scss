@@ -1,0 +1,13 @@
+.main-btn {
+  border-radius: 4px;
+  background: $cta;
+  height: 50px;
+  width: 100%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+
+  &.disabled {
+    background: $light-gray;
+  }
+}

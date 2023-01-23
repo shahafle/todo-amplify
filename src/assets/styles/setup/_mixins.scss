@@ -1,0 +1,29 @@
+@mixin from-mini-layout {
+  @media (min-width: $mini-breakpoint) {
+    @content;
+  }
+}
+
+@mixin from-mobile-layout {
+  @media (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin from-narrow-layout {
+  @media (min-width: $narrow-breakpoint) {
+    @content;
+  }
+}
+
+@mixin from-normal-layout {
+  @media (min-width: $normal-breakpoint) {
+    @content;
+  }
+}
+
+@mixin from-wide-layout {
+  @media (min-width: $wide-breakpoint) {
+    @content;
+  }
+}
