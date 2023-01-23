@@ -1,5 +1,6 @@
-export function TodoPreview({ todo, toggleTodo }) {
+export function TodoPreview({ todo, onToggleTodo, onRemoveTodo }) {
    return <div className="todo-preview">
-      <p onClick={() => { toggleTodo(todo.id) }}>{todo.title}</p>
+      <p onClick={() => { onToggleTodo(todo.id) }}>{todo.title}</p>
+      <span onClick={() => { onRemoveTodo(todo.id) }}>X</span>
    </div>
 }

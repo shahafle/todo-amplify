@@ -29,7 +29,7 @@ async function update(todo) {
    return todoData.data.updateTodo
 }
 
-async function remove(todo) {
-   const todoData = await API.graphql(graphqlOperation(deleteTodo, { input: todo }))
+async function remove(todoId) {
+   const todoData = await API.graphql(graphqlOperation(deleteTodo, { input: { id: todoId } }))
    return todoData.data.deleteTodo
 }

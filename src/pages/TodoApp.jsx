@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom/dist';
 //CMPS
 import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
-import { addTodo, loadTodos, updateTodo } from '../store/todo.action';
+import { addTodo, loadTodos, removeTodo, updateTodo } from '../store/todo.action';
 
 
 export function TodoApp() {
@@ -19,17 +19,16 @@ export function TodoApp() {
       else loadTodos()
    }, [])
 
-   const toggleTodo = async (todoId) => {
+   const onToggleTodo = async (todoId) => {
       const todo = todos.find(todo => todo.id === todoId)
       todo.isCompleted = !todo.isCompleted
       updateTodo(todo)
    }
 
-
    return <main className="todo-app main-layout">
       <div>
          <h1>TodoList</h1>
-         < TodoList todos={todos} toggleTodo={toggleTodo} onAddTodo={addTodo} />
+         < TodoList todos={todos} onToggleTodo={onToggleTodo} onAddTodo={addTodo} onRemoveTodo={removeTodo} />
       </div>
    </main>
 }

@@ -21,7 +21,7 @@ export async function updateTodo(todo) {
    store.dispatch({ type: UPDATE_TODO, todo: updatedTodo })
 }
 
-export async function removeTodo(title) {
-   const todo = await todoService.remove(title)
-   store.dispatch({ type: REMOVE_TODO, todoId: todo.id })
+export async function removeTodo(todoId) {
+   await todoService.remove(todoId)
+   store.dispatch({ type: REMOVE_TODO, todoId: todoId })
 }
