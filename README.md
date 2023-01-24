@@ -3,7 +3,7 @@ The app hosted by Amplify! [Explore it here](https://main.d1cde1yfo1dgeh.amplify
 
 ## Stack
 * Frontend framework: React
-* API: GrapgQL AppSync
+* API: GraphQL AppSync
 * Authentication: Cognito
 * DB: DynamoDB
 
