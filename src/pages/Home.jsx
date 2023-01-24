@@ -16,13 +16,17 @@ export function Home() {
    const { loggedInUser } = useSelector(state => state.userModule)
    const [user, setUser] = useState(userService.getDefaultUser())
    const [step, setStep] = useState(0)
-   const [authError, setAuthError] = useState(0)
+   const [authError, setAuthError] = useState('')
 
    useEffect(() => {
       if (loggedInUser && loggedInUser.userConfirmed !== false) {
          navigate('/todo')
       }
    }, [loggedInUser])
+
+   useEffect(() => {
+      setAuthError('')
+   }, [step])
 
    const handleChange = ({ target }) => {
       const fieldName = target.name
@@ -98,12 +102,12 @@ export function Home() {
             <label >Phone
                <input type="phone" name="phone" value={user.phone} onChange={handleChange} />
             </label>
-            {!!authError && <p>{authError}</p>}
+            {!!authError && <div className="auth-error"><IoAlertCircleOutline /><p>{authError}</p></div>}
             <button>Sign Up</button>
          </form>}
 
          {step === 2 && <form className="confirm-sign-up" onSubmit={onConfirmSignup}>
-            <label>Your authentication code
+            <label>Insert here the authentication code sent to your mail
                <input type="text" name="authenticationCode" value={user.authenticationCode} onChange={handleChange} />
             </label>
             {!!authError && <p><IoAlertCircleOutline />{authError}</p>}

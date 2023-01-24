@@ -28,6 +28,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      width: 320px;
       border: $primary-200 solid 1px;
       border-radius: 6px;
       padding: 16px;
@@ -40,20 +41,24 @@
       }
 
       input {
-         width: 280px;
          border: $primary-200 solid 1px;
          border-radius: 6px;
          padding: 6px 12px;
          background-color: $primary-500;
       }
 
-      p {
+      .auth-error {
          display: flex;
          align-items: center;
-         gap: 4px;
+         gap: 6px;
 
          svg {
+            font-size: 1.2rem;
             color: red;
+         }
+
+         p {
+            flex: 1;
          }
       }
 
