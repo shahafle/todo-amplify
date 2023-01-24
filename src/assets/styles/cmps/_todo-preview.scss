@@ -26,6 +26,10 @@
       }
    }
 
+   p {
+      word-break: break-word;
+   }
+
    .preview-info {
       flex: 1;
       display: flex;
