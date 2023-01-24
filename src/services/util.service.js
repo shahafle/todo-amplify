@@ -23,5 +23,6 @@ export function formatTimeSince(dateStr) {
    if (interval > 1) {
       return Math.floor(interval) + " minutes";
    }
+   if (seconds < 1) return "just now"
    return Math.floor(seconds) + " seconds";
 }

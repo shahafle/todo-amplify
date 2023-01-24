@@ -4,24 +4,18 @@ import { BiTimeFive } from "react-icons/bi";
 
 export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) {
 
-   const [title, setTitle] = useState(todo.title)
-
-   const handleChange = ({ target: { value } }) => {
-      setTitle(value)
-   }
-
-   const onBlur = (ev) => {
-      console.log('BLUR', ev.target)
-      if (!title) ev.target.focus()
+   const onBlur = ({ target }) => {
+      const text = target.textContent
+      if (!text) target.focus()
       else {
-         onUpdateTodo(todo.id, title)
+         onUpdateTodo(todo.id, text)
       }
    }
 
    return <div className={`todo-preview  ${todo.isCompleted ? 'completed' : ''}`}>
       <span className="checkbox" onClick={() => { onToggleTodo(todo.id) }}></span>
       <div className="preview-info">
-         <textarea type="text" onChange={handleChange} value={title} onBlur={onBlur} />
+         <p onBlur={onBlur} contentEditable="true" suppressContentEditableWarning={true}>{todo.title}</p>
          <div className="time">
             <BiTimeFive />
             <span>{formatTimeSince(todo.createdAt)}</span></div>

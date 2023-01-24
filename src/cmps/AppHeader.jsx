@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom/dist';
 //ASSETS
-import logo from '../assets/imgs/check.png';
+import logo from '../assets/imgs/logo.svg';
 import { logout } from '../store/user.action';
 
 export function AppHeader() {
 
+   const location = useLocation()
    const navigate = useNavigate()
    const { loggedInUser } = useSelector(state => state.userModule)
 
@@ -14,19 +15,12 @@ export function AppHeader() {
       await logout()
       navigate('/')
    }
-
+   if (location.pathname === '/') return
    return <header className='app-header main-layout'>
       <section className='content'>
-         <Link className='logo-container' to='/'>
-            <img src={logo} className="logo" alt="logo" />
-            <span>Do-it.</span>
-         </Link>
+         <img src={logo} className="logo" alt="logo" />
 
-         <nav>
-            {/* <NavLink to="/">Home</NavLink>
-            <NavLink to="/todo">My Todos</NavLink> */}
-            {loggedInUser && <button onClick={onLogout}>Logout</button>}
-         </nav>
+         {loggedInUser && <button onClick={onLogout}>Logout</button>}
       </section>
    </header>
 }

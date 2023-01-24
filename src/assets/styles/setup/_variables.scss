@@ -3,6 +3,7 @@ $primary-500: #17181F;
 $primary-400: #1d1d26;
 $primary-300: #20212C;
 $primary-200: #272732;
+$primary-100: #3a3a4a;
 $sub-clr: #fc769f;
 $text-200: #BCBCBF;
 $text-100: #fff;
@@ -11,15 +12,6 @@ $text-100: #fff;
 // Breakpoints:
 $mini-breakpoint: 520px;
 $mobile-breakpoint: 760px;
-$narrow-breakpoint: 1100px;
+$narrow-breakpoint: 960px;
 $normal-breakpoint: 1250px;
 $wide-breakpoint: 1460px;
-
-
-//Size:
-// $header-height: 60px;
-$mobile-navbar-height: 109px;
-
-//Box shadows:
-$light-shadow: 0 4px 10px 0 #0000000a;
-$border-bottom-shadow: 0 4px 10px 0 #0000000a;

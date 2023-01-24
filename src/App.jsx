@@ -10,6 +10,7 @@ import { loadLoggedInUser } from './store/user.action';
 
 function App() {
 
+
   useEffect(() => {
     loadLoggedInUser()
   }, [])

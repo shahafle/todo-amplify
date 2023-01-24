@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom/dist"
 //JS
 import { confirmSignup, login, signup } from "../store/user.action"
 import { userService } from "../services/user.service"
+//ASSETS
+import logo from '../assets/imgs/logo.svg';
+import { IoAlertCircleOutline } from "react-icons/io5";
+
 
 export function Home() {
 
@@ -62,44 +66,54 @@ export function Home() {
       }
    }
 
-   return <main>
-      {step === 0 && <form className="login" onSubmit={onLogin}>
-         <label>Username
-            <input type="text" name="username" value={user.username} onChange={handleChange} />
-         </label>
-         <label>Password
-            <input type="password" name="password" value={user.password} onChange={handleChange} />
-         </label>
-         {!!authError && <p>{authError}</p>}
-         <button>Login</button>
-      </form>}
+   return <main className="home main-layout">
+      <section className="content">
 
-      {step === 1 && <form className="sign-up" onSubmit={onSignUp}>
-         <label>Username
-            <input type="text" name="username" value={user.username} onChange={handleChange} />
-         </label>
-         <label>Password
-            <input type="password" name="password" value={user.password} onChange={handleChange} />
-         </label>
-         <label>Email
-            <input type="email" name="email" value={user.email} onChange={handleChange} />
-         </label>
-         <label >Phone
-            <input type="phone" name="phone" value={user.phone} onChange={handleChange} />
-         </label>
-         {!!authError && <p>{authError}</p>}
-         <button>Sign Up</button>
-      </form>}
+         <header>
+            <img src={logo} />
+            <h2>Sign {step === 0 ? 'in' : 'up'} to Do it</h2>
+         </header>
 
-      {step === 2 && <form className="confirm-sign-up" onSubmit={onConfirmSignup}>
-         <label>Your authentication code
-            <input type="text" name="authenticationCode" value={user.authenticationCode} onChange={handleChange} />
-         </label>
-         {!!authError && <p>{authError}</p>}
-         <button>Submit</button>
-      </form>}
+         {step === 0 && <form className="login" onSubmit={onLogin}>
+            <label>Username
+               <input type="text" name="username" value={user.username} onChange={handleChange} />
+            </label>
+            <label>Password
+               <input type="password" name="password" value={user.password} onChange={handleChange} />
+            </label>
+            {!!authError && <p><IoAlertCircleOutline />{authError}</p>}
+            <button>Login</button>
+         </form>}
 
-      <button onClick={toggleIsLogin}>{step ? 'Already have an account?' : 'Don\'t have an account yet?'}</button>
+         {step === 1 && <form className="sign-up" onSubmit={onSignUp}>
+            <label>Username
+               <input type="text" name="username" value={user.username} onChange={handleChange} />
+            </label>
+            <label>Password
+               <input type="password" name="password" value={user.password} onChange={handleChange} />
+            </label>
+            <label>Email
+               <input type="email" name="email" value={user.email} onChange={handleChange} />
+            </label>
+            <label >Phone
+               <input type="phone" name="phone" value={user.phone} onChange={handleChange} />
+            </label>
+            {!!authError && <p>{authError}</p>}
+            <button>Sign Up</button>
+         </form>}
 
+         {step === 2 && <form className="confirm-sign-up" onSubmit={onConfirmSignup}>
+            <label>Your authentication code
+               <input type="text" name="authenticationCode" value={user.authenticationCode} onChange={handleChange} />
+            </label>
+            {!!authError && <p><IoAlertCircleOutline />{authError}</p>}
+            <button>Submit</button>
+         </form>}
+
+         <footer>
+            {step ? 'Already have an account?' : 'New to Do it?'} <button onClick={toggleIsLogin}>{step ? 'Sign in' : 'Create an account'}</button>
+         </footer>
+
+      </section>
    </main>
 }

@@ -1,0 +1,78 @@
+.home {
+   justify-items: center;
+   margin-top: 80px;
+
+   .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+   }
+
+   header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+
+      h2 {
+         font-weight: 300;
+      }
+
+      img {
+         width: 100px;
+      }
+   }
+
+   form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: $primary-200 solid 1px;
+      border-radius: 6px;
+      padding: 16px;
+      background-color: $primary-300;
+
+      label {
+         display: flex;
+         flex-direction: column;
+         gap: 8px;
+      }
+
+      input {
+         width: 280px;
+         border: $primary-200 solid 1px;
+         border-radius: 6px;
+         padding: 6px 12px;
+         background-color: $primary-500;
+      }
+
+      p {
+         display: flex;
+         align-items: center;
+         gap: 4px;
+
+         svg {
+            color: red;
+         }
+      }
+
+      button {
+         border-radius: 6px;
+         padding: 6px;
+         background-color: $sub-clr;
+      }
+   }
+
+   footer {
+      align-self: stretch;
+      text-align: center;
+      border: $primary-200 solid 1px;
+      border-radius: 6px;
+      padding: 16px;
+
+      button {
+         color: #ffc4f2;
+      }
+   }
+}

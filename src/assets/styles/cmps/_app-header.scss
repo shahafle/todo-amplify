@@ -1,45 +1,22 @@
 .app-header {
    background-color: $primary-300;
-   margin-bottom: 3.75rem;
 
    .content {
-      padding-block: 12px;
+      padding-block: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .logo-container {
-         display: flex;
-         // gap: 2px;
-         align-items: center;
-
-         .logo {
-            width: 30px;
-         }
-
-         span {
-            font-size: rem(20px);
-            font-weight: 600;
-            color: $text-200;
-         }
+      .logo {
+         height: 24px;
       }
 
-      nav {
-         display: flex;
-         gap: 12px;
+      button {
+         color: $text-200;
 
-         >* {
-            color: $text-200;
-
-            &:hover {
-               color: $text-100;
-               // color: lighten($darkest-gray, 30%);
-            }
+         &:hover {
+            color: $text-100;
          }
-      }
-
-      .active {
-         text-decoration: underline;
       }
    }
 }

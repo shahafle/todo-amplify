@@ -1,10 +1,9 @@
 .compose-todo {
-   border: 3px solid $primary-400;
-   border-radius: 16px;
    padding: 12px;
    display: flex;
    gap: 12px;
-
+   border: 3px solid $primary-400;
+   border-radius: 16px;
 
    button {
       background-color: $sub-clr;

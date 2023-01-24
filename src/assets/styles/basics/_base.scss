@@ -49,7 +49,6 @@ h6 {
   margin: 0;
   padding: 0;
   line-height: 1em;
-  // font-weight: normal;
 }
 
 p {
@@ -91,8 +90,9 @@ input {
 }
 
 @include from-mobile-layout {
+
   ::-webkit-scrollbar {
-    width: 0.5em;
+    width: 0.4em;
     height: 0.5em;
   }
 
@@ -101,7 +101,12 @@ input {
   }
 
   ::-webkit-scrollbar-thumb {
-    // background: lighten($cta, 30%);
+    background-color: rgba($sub-clr, 50%);
+    transition: background-color 1s;
     border-radius: 100vw;
+
+    &:hover {
+      background-color: rgba($sub-clr, 100%);
+    }
   }
 }

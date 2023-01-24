@@ -40,10 +40,6 @@ export function TodoApp() {
          <h4>Tasks</h4>
          <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
       </section>
-      {/* 
-      <section className='todo-group'>
-         <h4>Tasks</h4>
-         <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
-      </section> */}
+
    </main>
 }

@@ -7,7 +7,7 @@ export async function loadTodos() {
       const todos = await todoService.query()
       store.dispatch({ type: SET_TODOS, todos })
    } catch (err) {
-      console.log('no logged in user', err)
+      console.log('failed to get todos', err)
    }
 }
 

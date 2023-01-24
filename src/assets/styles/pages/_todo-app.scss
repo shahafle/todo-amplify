@@ -1,5 +1,15 @@
 .todo-app {
    gap: 28px 0;
+   flex-grow: 1;
+   overflow: auto;
+
+   h1 {
+      display: none;
+
+      @include from-mobile-layout {
+         display: unset;
+      }
+   }
 
    .todo-group {
       display: flex;

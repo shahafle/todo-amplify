@@ -8,9 +8,12 @@ export function ComposeTodo({ addTodo }) {
       setTodoTitle(value)
    }
 
-   const onAddTodo = (ev) => {
-      ev.preventDefault()
-      addTodo(todoTitle)
+   const onAddTodo = async (ev) => {
+      try {
+         ev.preventDefault()
+         await addTodo(todoTitle)
+         setTodoTitle('')
+      } catch (err) { }
    }
 
    return <form onSubmit={onAddTodo} className='compose-todo'>

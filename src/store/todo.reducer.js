@@ -13,7 +13,7 @@ export function todoReducer(state = initialState, action) {
       case SET_TODOS:
          return { ...state, todos: [...action.todos] }
       case ADD_TODO:
-         return { ...state, todos: [...state.todos, action.todo] }
+         return { ...state, todos: [action.todo, ...state.todos] }
       case UPDATE_TODO:
          return { ...state, todos: [...state.todos.map(todo => todo.id === action.todo.id ? action.todo : todo)] }
       case REMOVE_TODO:

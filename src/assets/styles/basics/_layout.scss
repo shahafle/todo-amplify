@@ -2,13 +2,32 @@
     min-height: 100vh;
 }
 
+.App {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include from-mobile-layout {
+        gap: 60px;
+    }
+}
+
 .main-layout {
-    // max-height: 900px;
-    // margin: auto;
     display: grid;
-    grid-template-columns: 1fr 900px 1fr;
+    grid-template-columns: 12px 1fr 12px;
+    grid-auto-rows: min-content;
 
     &>* {
         grid-column: 2;
+    }
+
+    @include from-mobile-layout {
+        grid-template-columns: 1fr 700px 1fr;
+        padding-inline: 0;
+    }
+
+    @include from-narrow-layout {
+        grid-template-columns: 1fr 900px 1fr;
     }
 }
