@@ -1,12 +1,85 @@
 .todo-preview {
    display: flex;
+   align-items: flex-start;
    gap: 12px;
    background-color: $primary-300;
-   padding: 8px;
-   border-radius: 12px;
+   padding: 12px;
+   border-radius: 16px;
 
-   input {
+   .checkbox {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      border: 3px solid $sub-clr;
+      border-radius: 8px;
+      cursor: pointer;
+
+
+      &::after {
+         position: absolute;
+         left: 6px;
+         top: 1.5px;
+         width: 6px;
+         height: 12px;
+         border: solid $primary-300;
+         border-width: 0 2px 2px 0;
+         transform: rotate(45deg);
+      }
+   }
+
+   .preview-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+   }
+
+   textarea {
       background-color: transparent;
       border: none;
+      font-size: 1rem;
+   }
+
+   .time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: $text-200;
+      font-size: .9rem;
+   }
+
+   &:hover {
+      .remove {
+         opacity: 1;
+      }
+   }
+
+   .remove {
+      align-self: center;
+      opacity: 0;
+      transition: opacity .1s;
+      padding: 0.5em 1em;
+      color: $text-200;
+      border-radius: 4px;
+
+      &:hover {
+         background-color: lighten($primary-300, 10%);
+         color: $text-100;
+      }
+   }
+
+   &.completed {
+
+      .checkbox {
+         background-color: $sub-clr;
+
+         &::after {
+            content: '';
+         }
+      }
+
+      p {
+         text-decoration: line-through;
+      }
    }
 }

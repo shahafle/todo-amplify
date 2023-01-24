@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { formatTimeSince } from "../../services/util.service"
+import { BiTimeFive } from "react-icons/bi";
 
 export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) {
 
@@ -16,12 +18,14 @@ export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) 
       }
    }
 
-   return <div className="todo-preview">
-      <span onClick={() => { onToggleTodo(todo.id) }}>{todo.isCompleted ? 'V' : '_'}</span>
-      <div>
-         <input type="text" onChange={handleChange} value={title} onBlur={onBlur} />
-         <span>{todo.createdAt}</span>
+   return <div className={`todo-preview  ${todo.isCompleted ? 'completed' : ''}`}>
+      <span className="checkbox" onClick={() => { onToggleTodo(todo.id) }}></span>
+      <div className="preview-info">
+         <textarea type="text" onChange={handleChange} value={title} onBlur={onBlur} />
+         <div className="time">
+            <BiTimeFive />
+            <span>{formatTimeSince(todo.createdAt)}</span></div>
       </div>
-      <span onClick={() => { onRemoveTodo(todo.id) }}>X</span>
+      <button className="remove" onClick={() => { onRemoveTodo(todo.id) }}>Remove</button>
    </div>
 }

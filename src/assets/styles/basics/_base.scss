@@ -67,11 +67,13 @@ a {
   color: inherit;
 }
 
+textarea,
 input {
   outline: none;
   font: inherit;
   font-size: 14px;
   color: inherit;
+  padding: 0;
 
   &:-internal-autofill-previewed {
     background-color: initial !important;

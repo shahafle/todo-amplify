@@ -1,7 +1,7 @@
 .compose-todo {
    border: 3px solid $primary-400;
-   border-radius: 14px;
-   padding: 8px;
+   border-radius: 16px;
+   padding: 12px;
    display: flex;
    gap: 12px;
 
@@ -10,15 +10,14 @@
       background-color: $sub-clr;
       font-size: 1.4rem;
       line-height: 13px;
-      padding: 8px;
-      border-radius: 10px;
+      padding: 6px;
+      border-radius: 8px;
       color: $primary-500;
       font-weight: 400;
    }
 
    input {
       flex: 1;
-      padding: 0;
       background-color: transparent;
       border: none;
       font-size: 1rem;

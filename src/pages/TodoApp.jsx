@@ -34,11 +34,16 @@ export function TodoApp() {
 
    return <main className="todo-app main-layout">
       <h1>TodoList</h1>
-      <ComposeTodo onAddTodo={addTodo} />
+      <ComposeTodo addTodo={addTodo} />
 
       <section className='todo-group'>
          <h4>Tasks</h4>
          <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
       </section>
+      {/* 
+      <section className='todo-group'>
+         <h4>Tasks</h4>
+         <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
+      </section> */}
    </main>
 }
