@@ -14,7 +14,6 @@
       border-radius: 8px;
       cursor: pointer;
 
-
       &::after {
          position: absolute;
          left: 6px;
@@ -55,18 +54,12 @@
       padding: 0.5em 0.5em;
       color: $text-200;
       border-radius: 4px;
-      background-color: lighten($primary-300, 10%);
+      background-color: $primary-100;
 
       @include from-mobile-layout {
          display: none;
          background-color: transparent;
-         color: $text-200;
-         padding: 0.5em 1em;
-
-         &:hover {
-            background-color: lighten($primary-300, 10%);
-            color: $text-100;
-         }
+         @include main-btn
       }
 
    }

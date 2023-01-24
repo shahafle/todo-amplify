@@ -12,11 +12,7 @@
       }
 
       button {
-         color: $text-200;
-
-         &:hover {
-            color: $text-100;
-         }
+         @include main-btn
       }
    }
 }
