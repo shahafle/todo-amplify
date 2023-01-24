@@ -1,8 +1,13 @@
 # Amplify Todo App
+The app hosted by Amplify! [Explore it here](https://main.d1cde1yfo1dgeh.amplifyapp.com/#/todo)
+
+## Stack
+* Frontend framework: React
+* API: GrapgQL AppSync
+* Authentication: Cognito
+* DB: DynamoDB
 
 ## Getting started
-
-**Note!** This repository contains only server side of the project. To run the app properly, you have to run client side too.
 
 Head to the repository on top and clone the project or download the files.
 
