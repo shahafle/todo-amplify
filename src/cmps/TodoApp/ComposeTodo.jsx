@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export function TodoCompose({ addTodo }) {
+export function ComposeTodo({ addTodo }) {
 
    const [todoTitle, setTodoTitle] = useState('')
 
@@ -13,8 +13,8 @@ export function TodoCompose({ addTodo }) {
       addTodo(todoTitle)
    }
 
-   return <form onSubmit={onAddTodo}>
-      <input type="text" placeholder="add todo..." value={todoTitle} onChange={handleChange} />
-      <button>ADDD</button>
+   return <form onSubmit={onAddTodo} className='compose-todo'>
+      <button>+</button>
+      <input type="text" placeholder="Add a task" value={todoTitle} onChange={handleChange} />
    </form>
 }

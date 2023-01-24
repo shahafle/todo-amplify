@@ -1,37 +1,45 @@
 .app-header {
-   padding-block: 8px;
-   display: flex;
-   justify-content: space-between;
+   background-color: $primary-300;
+   margin-bottom: 3.75rem;
 
-   .logo-container {
+   .content {
+      padding-block: 12px;
       display: flex;
-      // gap: 2px;
+      justify-content: space-between;
       align-items: center;
 
-      .logo {
-         width: 30px;
-         transform: translateX(-6px);
-      }
+      .logo-container {
+         display: flex;
+         // gap: 2px;
+         align-items: center;
 
-      span {
-         font-size: rem(20px);
-         font-weight: 600;
-         color: #008000;
-      }
-   }
+         .logo {
+            width: 30px;
+         }
 
-   nav {
-      display: flex;
-      gap: 12px;
-
-      a {
-         &:hover {
-            color: lighten($darkest-gray, 30%);
+         span {
+            font-size: rem(20px);
+            font-weight: 600;
+            color: #008000;
          }
       }
-   }
 
-   .active {
-      text-decoration: underline;
+      nav {
+         display: flex;
+         gap: 12px;
+
+         >* {
+            color: $text-200;
+
+            &:hover {
+               color: $text-100;
+               // color: lighten($darkest-gray, 30%);
+            }
+         }
+      }
+
+      .active {
+         text-decoration: underline;
+      }
    }
 }

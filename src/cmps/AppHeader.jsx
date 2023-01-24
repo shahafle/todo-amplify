@@ -15,18 +15,18 @@ export function AppHeader() {
       navigate('/')
    }
 
-   return <header className='main-layout'>
-      <div className='app-header'>
+   return <header className='app-header main-layout'>
+      <section className='content'>
          <Link className='logo-container' to='/'>
             <img src={logo} className="logo" alt="logo" />
             <span>Do-it.</span>
          </Link>
 
          <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/todo">My Todos</NavLink>
+            {/* <NavLink to="/">Home</NavLink>
+            <NavLink to="/todo">My Todos</NavLink> */}
             {loggedInUser && <button onClick={onLogout}>Logout</button>}
          </nav>
-      </div>
+      </section>
    </header>
 }

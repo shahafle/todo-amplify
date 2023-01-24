@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom/dist';
+import { ComposeTodo, TodoCompose } from '../cmps/TodoApp/ComposeTodo';
 //CMPS
 import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
@@ -34,7 +35,8 @@ export function TodoApp() {
    return <main className="todo-app main-layout">
       <div>
          <h1>TodoList</h1>
-         < TodoList todos={todos} onToggleTodo={onToggleTodo} onAddTodo={addTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
+         <ComposeTodo onAddTodo={addTodo} />
+         <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
       </div>
    </main>
 }
