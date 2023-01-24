@@ -29,9 +29,12 @@
 }
 
 @mixin main-btn {
-  color: $text-200;
   padding: 0.5em 1em;
   border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color .2s, color .2s;
+  color: $text-200;
+
 
   &:hover {
     background-color: $primary-100;

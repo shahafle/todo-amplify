@@ -9,7 +9,6 @@ export function ComposeTodo({ addTodo }) {
    }
 
    const onAddTodo = async (ev) => {
-      console.log('todoTitle', todoTitle);
       try {
          ev.preventDefault()
          await addTodo(todoTitle)

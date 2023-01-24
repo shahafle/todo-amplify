@@ -28,10 +28,8 @@ export function Home() {
       setAuthError('')
    }, [step])
 
-   const handleChange = ({ target }) => {
-      const fieldName = target.name
-      const value = target.value
-      setUser({ ...user, [fieldName]: value })
+   const handleChange = ({ target: { name, value } }) => {
+      setUser({ ...user, [name]: value })
    }
 
    const toggleIsLogin = () => {

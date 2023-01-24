@@ -20,7 +20,7 @@ export function TodoApp() {
       else loadTodos()
    }, [])
 
-   const onToggleTodo = async (todoId) => {
+   const onToggleTodo = (todoId) => {
       const todo = todos.find(todo => todo.id === todoId)
       todo.isCompleted = !todo.isCompleted
       updateTodo(todo)
