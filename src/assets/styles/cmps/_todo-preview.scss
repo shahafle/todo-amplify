@@ -34,12 +34,6 @@
       gap: 4px;
    }
 
-   input {
-      background-color: transparent;
-      border: none;
-      font-size: 1rem;
-   }
-
    .time {
       display: flex;
       align-items: center;
@@ -62,12 +56,11 @@
       color: $text-200;
       border-radius: 4px;
       background-color: lighten($primary-300, 10%);
-      color: $text-100;
 
       @include from-mobile-layout {
          display: none;
          background-color: transparent;
-         color: $text-100;
+         color: $text-200;
          padding: 0.5em 1em;
 
          &:hover {
