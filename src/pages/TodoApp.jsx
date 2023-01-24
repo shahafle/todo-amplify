@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom/dist';
-import { ComposeTodo, TodoCompose } from '../cmps/TodoApp/ComposeTodo';
+import { ComposeTodo } from '../cmps/TodoApp/ComposeTodo';
 //CMPS
 import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
@@ -33,10 +33,12 @@ export function TodoApp() {
    }
 
    return <main className="todo-app main-layout">
-      <div>
-         <h1>TodoList</h1>
-         <ComposeTodo onAddTodo={addTodo} />
+      <h1>TodoList</h1>
+      <ComposeTodo onAddTodo={addTodo} />
+
+      <section className='todo-group'>
+         <h4>Tasks</h4>
          <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
-      </div>
+      </section>
    </main>
 }

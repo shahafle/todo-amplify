@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom/dist';
 //ASSETS
 import logo from '../assets/imgs/check.png';

@@ -17,7 +17,7 @@ async function signup(credentials) {
          enabled: true,
       }
    })
-   const { user: cognitoUser, userConfirmed } = signUpData
+   const { userConfirmed } = signUpData
    return { username, password, attributes: { email, phone_number: phone }, userConfirmed }
 }
 

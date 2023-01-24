@@ -11,6 +11,11 @@
 @import "basics/modals";
 @import "basics/buttons";
 
+// Pages
+@import "pages/todo-app";
+
 // Cmps
 @import "cmps/app-header";
 @import "cmps/compose-todo";
+@import "cmps/todo-list";
+@import "cmps/todo-preview";

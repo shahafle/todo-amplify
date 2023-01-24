@@ -1,0 +1,9 @@
+.todo-app {
+   gap: 28px 0;
+
+   .todo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+   }
+}

@@ -18,7 +18,10 @@ export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) 
 
    return <div className="todo-preview">
       <span onClick={() => { onToggleTodo(todo.id) }}>{todo.isCompleted ? 'V' : '_'}</span>
-      <input type="text" onChange={handleChange} value={title} onBlur={onBlur} />
+      <div>
+         <input type="text" onChange={handleChange} value={title} onBlur={onBlur} />
+         <span>{todo.createdAt}</span>
+      </div>
       <span onClick={() => { onRemoveTodo(todo.id) }}>X</span>
    </div>
 }

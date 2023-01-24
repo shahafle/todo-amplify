@@ -15,6 +15,6 @@ export function ComposeTodo({ addTodo }) {
 
    return <form onSubmit={onAddTodo} className='compose-todo'>
       <button>+</button>
-      <input type="text" placeholder="Add a task" value={todoTitle} onChange={handleChange} />
+      <input type="text" placeholder="Add a task" value={todoTitle} onChange={handleChange} spellcheck="false" />
    </form>
 }

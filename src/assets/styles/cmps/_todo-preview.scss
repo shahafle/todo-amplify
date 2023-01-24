@@ -1,0 +1,12 @@
+.todo-preview {
+   display: flex;
+   gap: 12px;
+   background-color: $primary-300;
+   padding: 8px;
+   border-radius: 12px;
+
+   input {
+      background-color: transparent;
+      border: none;
+   }
+}
