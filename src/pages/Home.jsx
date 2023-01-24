@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom/dist"
 import { confirmSignup, login, signup } from "../store/user.action"
 import { userService } from "../services/user.service"
 //ASSETS
-import logo from '../assets/imgs/logo.svg';
+import icon from '../assets/imgs/icon.svg';
 import { IoAlertCircleOutline } from "react-icons/io5";
 
 
@@ -74,7 +74,7 @@ export function Home() {
       <section className="content">
 
          <header>
-            <img src={logo} />
+            <img src={icon} />
             <h2>Sign {step === 0 ? 'in' : 'up'} to Do it</h2>
          </header>
 
@@ -97,7 +97,7 @@ export function Home() {
                <input type="password" name="password" value={user.password} onChange={handleChange} />
             </label>
             <label>Email
-               <input type="email" name="email" value={user.email} onChange={handleChange} />
+               <input type="email" name="email" value={user.email} onChange={handleChange} required />
             </label>
             <label >Phone
                <input type="phone" name="phone" value={user.phone} onChange={handleChange} />

@@ -6,8 +6,9 @@ export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) 
 
    const onBlur = ({ target }) => {
       const text = target.textContent
-      if (!text) target.focus()
-      else {
+      if (!text) {
+         target.textContent = todo.title
+      } else {
          onUpdateTodo(todo.id, text)
       }
    }

@@ -9,15 +9,18 @@ export function ComposeTodo({ addTodo }) {
    }
 
    const onAddTodo = async (ev) => {
+      console.log('todoTitle', todoTitle);
       try {
          ev.preventDefault()
          await addTodo(todoTitle)
          setTodoTitle('')
-      } catch (err) { }
+      } catch (err) {
+         console.log(err)
+      }
    }
 
    return <form onSubmit={onAddTodo} className='compose-todo'>
-      <button>+</button>
+      <button disabled={!todoTitle}>+</button>
       <input type="text" placeholder="Add a task" value={todoTitle} onChange={handleChange} spellCheck="false" />
    </form>
 }
