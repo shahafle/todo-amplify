@@ -5,6 +5,10 @@
    border: 3px solid $primary-400;
    border-radius: 16px;
 
+   &:focus-within {
+      border: 3px solid $primary-100;
+   }
+
    button {
       background-color: $sub-clr;
       font-size: 1.4rem;

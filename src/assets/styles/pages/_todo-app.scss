@@ -16,6 +16,10 @@
       }
    }
 
+   .empty-list {
+      color: $text-200;
+   }
+
    .todo-group {
       display: flex;
       flex-direction: column;

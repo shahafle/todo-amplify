@@ -33,12 +33,13 @@ export function TodoApp() {
    }
 
    return <main className="todo-app main-layout">
-      <h1>TodoList</h1>
+      {loggedInUser && <h1>Hi, {loggedInUser.username}</h1>}
       <ComposeTodo addTodo={addTodo} />
 
       <section className='todo-group'>
          <h4>Tasks</h4>
-         <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />
+         {!todos.length ? <p className='empty-list'>No tasks have been created yet, add your first task above</p>
+            : <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
       </section>
 
    </main>
