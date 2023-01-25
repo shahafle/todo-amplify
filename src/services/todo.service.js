@@ -38,5 +38,10 @@ async function remove(todoId) {
 function _generateCriteria(filterBy) {
    const criteria = { filter: {} }
    criteria.filter.title = { contains: filterBy.title ?? '' }
+
+   if (filterBy.isCompleted) {
+      criteria.filter.isCompleted = { eq: filterBy.isCompleted === 'completed' }
+   }
+
    return criteria
 }

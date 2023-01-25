@@ -36,14 +36,13 @@ export function TodoApp() {
    }
 
    return <main className="todo-app main-layout">
-      <div className='mobile-search'>
-         <SearchBar />
-      </div>
+      <SearchBar />
       {loggedInUser && <h1>Hi, {loggedInUser.username}</h1>}
       <ComposeTodo addTodo={addTodo} />
 
       <section className='todo-group'>
          <h4>Tasks {!!todos?.length && `${getDoneCount()}/${todos.length}`}</h4>
+
          {!todos && <p>Loading your tasks...</p>}
          {todos && !todos.length && !filterBy.title && <p className='empty-list'>No tasks have been created yet, add your first task above</p>}
          {todos && !todos.length && filterBy.title && <p className='empty-list'>No results matching your search</p>}

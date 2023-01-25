@@ -1,32 +1,51 @@
-.search-bar {
+.todo-filter {
    display: flex;
-   align-items: center;
-   gap: 4px;
-   padding: 2px 10px 2px 12px;
-   background-color: $primary-400;
-   border: 1px solid $primary-500;
-   border-radius: 50rem;
+   flex-direction: column;
+   gap: 10px;
 
-   input {
-      border: none;
-      background-color: rgba(255, 255, 255, 0);
-      width: 240px;
-      flex: 1;
+   @include from-mobile-layout {
+      flex-direction: unset;
+      gap: 16px;
    }
 
-   input:placeholder-shown~button {
+   select {
+      background-color: $primary-400;
+      border: 1px solid $primary-500;
+      padding: 3px 8px;
+      border-radius: 50rem;
+      text-align: center;
+   }
 
-      svg {
-         color: $text-200;
+   .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px 4px 12px;
+      background-color: $primary-400;
+      border: 1px solid $primary-500;
+      border-radius: 50rem;
+
+      input {
+         border: none;
+         background-color: rgba(255, 255, 255, 0);
+         width: 240px;
+         flex: 1;
       }
-   }
 
-   button {
-      display: grid;
+      input:placeholder-shown~button {
 
-      svg {
-         font-size: 1.2rem;
-         color: $text-100;
+         svg {
+            color: $text-200;
+         }
+      }
+
+      button {
+         display: grid;
+
+         svg {
+            font-size: 1.2rem;
+            color: $text-100;
+         }
       }
    }
 }

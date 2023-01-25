@@ -16,12 +16,11 @@
       }
    }
 
-   .search-bar {
+   .todo-filter {
       display: none;
 
       @include from-mobile-layout {
          display: flex;
       }
-
    }
 }

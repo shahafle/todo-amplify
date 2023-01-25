@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 //JS
 import { setFilter } from '../../store/todo.action';
@@ -10,8 +10,12 @@ export function SearchBar() {
    const { filterBy } = useSelector(state => state.todoModule)
    const [localFilterBy, setLocalFilterBy] = useState(filterBy)
 
-   const handleChange = ({ target: { value } }) => {
-      setLocalFilterBy({ ...localFilterBy, title: value })
+   useEffect(() => {
+      setFilter(localFilterBy)
+   }, [localFilterBy])
+
+   const handleChange = ({ target: { name, value } }) => {
+      setLocalFilterBy({ ...localFilterBy, [name]: value })
    }
 
    const onSearch = (ev) => {
@@ -19,8 +23,16 @@ export function SearchBar() {
       setFilter(localFilterBy)
    }
 
-   return <form className='search-bar' onSubmit={onSearch}>
-      <input type="text" onChange={handleChange} value={localFilterBy.title} placeholder="search" />
-      <button><BiSearch /></button>
-   </form>
+   return <div className='todo-filter'>
+      <form className='search-bar' onSubmit={onSearch}>
+         <input type="text" name="title" onChange={handleChange} value={localFilterBy.title} placeholder="search" />
+         <button><BiSearch /></button>
+      </form>
+
+      <select name="isCompleted" onChange={handleChange}>
+         <option value="">All</option>
+         <option value="open">Open</option>
+         <option value="completed">Completed</option>
+      </select>
+   </div>
 }
