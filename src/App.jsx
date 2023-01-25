@@ -1,33 +1,31 @@
 import { useEffect } from "react"
-import { Provider } from 'react-redux';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 //CMPS
 import { AppHeader } from './cmps/AppHeader';
 //JS
-import { routes } from './routes';
-import { store } from './store';
+import { checkAuthGuard, routes } from './router';
 import { loadLoggedInUser } from './store/user.action';
 
 function App() {
 
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     loadLoggedInUser()
   }, [])
 
+  useEffect(() => {
+    checkAuthGuard(location.pathname, navigate)
+  }, [location])
 
   return (
-    <Provider store={store}>
-
-      <HashRouter>
-        <div className="App">
-          <AppHeader />
-          <Routes>
-            {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
-          </Routes>
-        </div>
-      </HashRouter>
-    </Provider>
+    <div className="App">
+      <AppHeader />
+      <Routes>
+        {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
+      </Routes>
+    </div>
   );
 }
 

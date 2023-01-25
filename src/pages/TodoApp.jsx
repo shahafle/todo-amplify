@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom/dist';
 import { ComposeTodo } from '../cmps/TodoApp/ComposeTodo';
 import { SearchBar } from '../cmps/TodoApp/SearchBar';
 //CMPS
@@ -8,17 +7,12 @@ import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
 import { addTodo, loadTodos, removeTodo, updateTodo } from '../store/todo.action';
 
-
 export function TodoApp() {
-
-   const navigate = useNavigate()
-
    const { loggedInUser } = useSelector(state => state.userModule)
    const { todos, filterBy } = useSelector(state => state.todoModule)
 
    useEffect(() => {
-      if (!loggedInUser) navigate('/')
-      else loadTodos()
+      if (loggedInUser) loadTodos()
    }, [])
 
    const onToggleTodo = (todoId) => {

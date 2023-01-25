@@ -1,14 +1,19 @@
 import { userService } from '../services/user.service.js'
 import { store } from '../store'
-import { SET_LOGGED_USER } from '../store/user.reducer.js'
+import { SET_LOGGED_USER, SET_LOGGED_USER_PRM } from '../store/user.reducer.js'
 
-export async function loadLoggedInUser() {
-    try {
-        const user = await userService.getLoggedInUser()
-        store.dispatch({ type: SET_LOGGED_USER, user })
-    } catch (err) {
-        console.log('no logged in user', err)
-    }
+export function loadLoggedInUser() {
+
+    const userPrm = userService.getLoggedInUser()
+        .then(user => {
+            store.dispatch({ type: SET_LOGGED_USER, user })
+            return user
+        })
+        .catch(err => {
+            console.log('no logged in user', err)
+        })
+
+    store.dispatch({ type: SET_LOGGED_USER_PRM, loggedUserPrm: userPrm })
 }
 
 export async function login(credentials) {

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom/dist"
 //JS
 import { confirmSignup, login, signup } from "../store/user.action"
@@ -8,21 +7,13 @@ import { userService } from "../services/user.service"
 import icon from '../assets/imgs/icon.svg';
 import { IoAlertCircleOutline } from "react-icons/io5";
 
-
 export function Home() {
 
    const navigate = useNavigate()
 
-   const { loggedInUser } = useSelector(state => state.userModule)
    const [user, setUser] = useState(userService.getDefaultUser())
    const [step, setStep] = useState(0)
    const [authError, setAuthError] = useState('')
-
-   useEffect(() => {
-      if (loggedInUser && loggedInUser.userConfirmed !== false) {
-         navigate('/todo')
-      }
-   }, [loggedInUser])
 
    useEffect(() => {
       setAuthError('')
@@ -72,7 +63,7 @@ export function Home() {
       <section className="content">
 
          <header>
-            <img src={icon} />
+            <img src={icon} alt="Do it logo" />
             <h2>Sign {step === 0 ? 'in' : 'up'} to Do it</h2>
          </header>
 
