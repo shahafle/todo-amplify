@@ -14,7 +14,7 @@ export function TodoApp() {
    const navigate = useNavigate()
 
    const { loggedInUser } = useSelector(state => state.userModule)
-   const { todos } = useSelector(state => state.todoModule)
+   const { todos, filterBy } = useSelector(state => state.todoModule)
 
    useEffect(() => {
       if (!loggedInUser) navigate('/')
@@ -49,11 +49,12 @@ export function TodoApp() {
       <ComposeTodo addTodo={addTodo} />
 
       <section className='todo-group'>
-         <h4>Tasks {todos && `${getDoneCount()}/${todos.length}`}</h4>
+         <h4>Tasks {!!todos?.length && `${getDoneCount()}/${todos.length}`}</h4>
          {!todos && <p>Loading your tasks...</p>}
-         {todos && !todos.length && <p className='empty-list'>No tasks have been created yet, add your first task above</p>}
-         {todos?.length && <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
-      </section>
+         {todos && !todos.length && !filterBy.title && <p className='empty-list'>No tasks have been created yet, add your first task above</p>}
+         {todos && !todos.length && filterBy.title && <p className='empty-list'>No results matching your search</p>}
+         {!!todos?.length && <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
+      </section >
 
-   </main>
+   </main >
 }
