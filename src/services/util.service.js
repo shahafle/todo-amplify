@@ -26,3 +26,11 @@ export function formatTimeSince(dateStr) {
    if (seconds < 1) return "just now"
    return Math.floor(seconds) + " seconds";
 }
+
+export function debounce(func, timeout = 300) {
+   let timer
+   return (...args) => {
+      clearTimeout(timer)
+      timer = setTimeout(() => { func.apply(this, args) }, timeout)
+   }
+}

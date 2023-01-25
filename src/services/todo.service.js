@@ -9,8 +9,9 @@ export const todoService = {
    remove
 }
 
-async function query() {
-   const todoData = await API.graphql(graphqlOperation(listTodos))
+async function query(filterBy) {
+   const criteria = _generateCriteria(filterBy)
+   const todoData = await API.graphql(graphqlOperation(listTodos, criteria))
    return todoData.data.listTodos.items
 }
 
@@ -32,4 +33,10 @@ async function update(todo) {
 async function remove(todoId) {
    const todoData = await API.graphql(graphqlOperation(deleteTodo, { input: { id: todoId } }))
    return todoData.data.deleteTodo
+}
+
+function _generateCriteria(filterBy) {
+   const criteria = { filter: {} }
+   criteria.filter.title = { contains: filterBy.title ?? '' }
+   return criteria
 }
