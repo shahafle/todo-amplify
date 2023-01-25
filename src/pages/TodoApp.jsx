@@ -32,12 +32,17 @@ export function TodoApp() {
       updateTodo(todo)
    }
 
+   const doneTodosCount = todos.reduce((acc, todo) => {
+      if (todo.isCompleted) acc++
+      return acc
+   }, 0)
+
    return <main className="todo-app main-layout">
       {loggedInUser && <h1>Hi, {loggedInUser.username}</h1>}
       <ComposeTodo addTodo={addTodo} />
 
       <section className='todo-group'>
-         <h4>Tasks</h4>
+         <h4>Tasks {`${doneTodosCount}/${todos.length}`}</h4>
          {!todos.length ? <p className='empty-list'>No tasks have been created yet, add your first task above</p>
             : <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
       </section>
