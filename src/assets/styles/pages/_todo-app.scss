@@ -2,10 +2,16 @@
    gap: 28px 0;
    flex-grow: 1;
    overflow: auto;
-   padding-top: 20px;
+   padding-top: 10px;
 
    @include from-mobile-layout {
       padding-top: 60px;
+   }
+
+   .search-bar {
+      @include from-mobile-layout {
+         display: none;
+      }
    }
 
    h1 {

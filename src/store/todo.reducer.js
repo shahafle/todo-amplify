@@ -5,7 +5,7 @@ export const REMOVE_TODO = 'REMOVE_TODO'
 export const SET_FILTER = 'SET_FILTER'
 
 const initialState = {
-   todos: [],
+   todos: null,
    filterBy: { title: '' }
 }
 

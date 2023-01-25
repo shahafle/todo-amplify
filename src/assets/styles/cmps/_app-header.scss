@@ -16,35 +16,12 @@
       }
    }
 
-   form {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 10px 2px 12px;
-      background-color: $primary-400;
-      border: 1px solid $primary-500;
-      border-radius: 50rem;
+   .search-bar {
+      display: none;
 
-      input {
-         border: none;
-         background-color: rgba(255, 255, 255, 0);
-         width: 240px;
+      @include from-mobile-layout {
+         display: flex;
       }
 
-      input:placeholder-shown~button {
-
-         svg {
-            color: $text-200;
-         }
-      }
-
-      button {
-         display: grid;
-
-         svg {
-            font-size: 1.2rem;
-            color: $text-100;
-         }
-      }
    }
 }
