@@ -13,7 +13,7 @@ export function TodoApp() {
 
    useEffect(() => {
       if (loggedInUser) loadTodos()
-   }, [])
+   }, [loggedInUser])
 
    const onToggleTodo = (todoId) => {
       const todo = todos.find(todo => todo.id === todoId)
