@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom/dist';
 //JS
 import { logout } from '../store/user.action';
 //CMPS
-import { SearchBar } from './TodoApp/SearchBar';
+import { TodoFilter } from './TodoApp/TodoFilter';
 //ASSETS
 import logo from '../assets/imgs/logo.svg';
 
@@ -26,7 +26,7 @@ export function AppHeader() {
       <section className='content'>
          <img src={logo} className="logo" alt="logo" />
 
-         <SearchBar />
+         <TodoFilter />
          {loggedInUser && <button className='logout' onClick={onLogout}>Logout</button>}
       </section>
    </header>

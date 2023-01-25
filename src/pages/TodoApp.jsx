@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ComposeTodo } from '../cmps/TodoApp/ComposeTodo';
-import { SearchBar } from '../cmps/TodoApp/SearchBar';
+import { TodoFilter } from '../cmps/TodoApp/TodoFilter';
 //CMPS
 import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
@@ -36,7 +36,7 @@ export function TodoApp() {
    }
 
    return <main className="todo-app main-layout">
-      <SearchBar />
+      <TodoFilter />
       {loggedInUser && <h1>Hi, {loggedInUser.username}</h1>}
       <ComposeTodo addTodo={addTodo} />
 

@@ -5,7 +5,7 @@ import { setFilter } from '../../store/todo.action';
 //ASSETS
 import { BiSearch } from "react-icons/bi";
 
-export function SearchBar() {
+export function TodoFilter() {
 
    const { filterBy } = useSelector(state => state.todoModule)
    const [localFilterBy, setLocalFilterBy] = useState(filterBy)
