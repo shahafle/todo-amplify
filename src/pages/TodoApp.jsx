@@ -4,6 +4,7 @@ import { ComposeTodo } from '../cmps/TodoApp/ComposeTodo';
 import { EmptyList } from '../cmps/TodoApp/EmptyList';
 import { TodoFilter } from '../cmps/TodoApp/TodoFilter';
 //CMPS
+import { Loader } from "../cmps/Loader";
 import { TodoList } from "../cmps/TodoApp/TodoList";
 //JS
 import { addTodo, loadTodos, removeTodo, updateTodo } from '../store/todo.action';
@@ -16,15 +17,15 @@ export function TodoApp() {
       if (loggedInUser) loadTodos()
    }, [loggedInUser])
 
-   const onToggleTodo = (todoId) => {
-      const todo = todos.find(todo => todo.id === todoId)
-      todo.isCompleted = !todo.isCompleted
-      updateTodo(todo)
-   }
+   // const onToggleTodo = (todoId) => {
+   //    const todo = todos.find(todo => todo.id === todoId)
+   //    todo.isCompleted = !todo.isCompleted
+   //    updateTodo(todo)
+   // }
 
-   const onUpdateTodo = (todoId, title) => {
+   const onUpdateTodo = (todoId, field, value) => {
       const todo = todos.find(todo => todo.id === todoId)
-      todo.title = title
+      todo[field] = value
       updateTodo(todo)
    }
 
@@ -43,9 +44,9 @@ export function TodoApp() {
       <section className='todo-group'>
          <h4>Tasks {!!todos?.length && `${getDoneCount()}/${todos.length}`}</h4>
 
-         {!todos && <p>Loading your tasks...</p>}
+         {!todos && <Loader />}
          {todos && !todos.length && <EmptyList isFiltered={!!filterBy.title} />}
-         {!!todos?.length && <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
+         {!!todos?.length && <TodoList todos={todos} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
       </section >
 
    </main >

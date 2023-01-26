@@ -1,12 +1,14 @@
 import { todoService } from '../services/todo.service.js'
 import { store } from '../store'
-import { ADD_TODO, REMOVE_TODO, SET_FILTER, SET_TODOS, UPDATE_TODO } from '../store/todo.reducer.js'
+import { ADD_TODO, REMOVE_TODO, SET_FILTER, SET_IS_TODO_LOADING, SET_TODOS, UPDATE_TODO } from '../store/todo.reducer.js'
 
 export async function loadTodos() {
    try {
+      store.dispatch({ type: SET_IS_TODO_LOADING, isTodoLoading: true })
       const todos = await todoService.query(store.getState().todoModule.filterBy)
       store.dispatch({ type: SET_TODOS, todos })
    } catch (err) {
+      store.dispatch({ type: SET_IS_TODO_LOADING, isTodoLoading: false })
       console.log('failed to get todos', err)
    }
 }

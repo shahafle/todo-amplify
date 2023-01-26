@@ -6,11 +6,14 @@ import { userService } from "../services/user.service"
 //ASSETS
 import icon from '../assets/imgs/icon.svg';
 import { IoAlertCircleOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
+import { Loader } from "../cmps/Loader";
 
 export function Home() {
 
    const navigate = useNavigate()
 
+   const { isAuthLoading } = useSelector(state => state.userModule)
    const [user, setUser] = useState(userService.getDefaultUser())
    const [step, setStep] = useState(0)
    const [authError, setAuthError] = useState('')
@@ -57,6 +60,8 @@ export function Home() {
          setAuthError(err.message)
       }
    }
+
+   if (isAuthLoading) return <Loader />
 
    return <main className="home main-layout">
       <section className="content">

@@ -1,19 +1,19 @@
 import { formatTimeSince } from "../../services/util.service"
 import { BiTimeFive } from "react-icons/bi";
 
-export function TodoPreview({ todo, onToggleTodo, onUpdateTodo, onRemoveTodo }) {
+export function TodoPreview({ todo, onUpdateTodo, onRemoveTodo }) {
 
    const handleContentEdit = ({ target }) => {
       const text = target.textContent
       if (!text) {
          target.textContent = todo.title
       } else {
-         onUpdateTodo(todo.id, text)
+         onUpdateTodo(todo.id, 'title', text)
       }
    }
 
    return <div className={`todo-preview  ${todo.isCompleted ? 'completed' : ''}`}>
-      <span className="checkbox" onClick={() => { onToggleTodo(todo.id) }}></span>
+      <span className="checkbox" onClick={() => { onUpdateTodo(todo.id, 'isCompleted', !todo.isCompleted) }}></span>
       <div className="preview-info">
          <p onBlur={handleContentEdit} contentEditable="true" suppressContentEditableWarning={true}>{todo.title}</p>
          <div className="time">
