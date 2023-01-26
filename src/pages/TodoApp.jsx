@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ComposeTodo } from '../cmps/TodoApp/ComposeTodo';
+import { EmptyList } from '../cmps/TodoApp/EmptyList';
 import { TodoFilter } from '../cmps/TodoApp/TodoFilter';
 //CMPS
 import { TodoList } from "../cmps/TodoApp/TodoList";
@@ -32,7 +33,6 @@ export function TodoApp() {
          if (todo.isCompleted) acc++
          return acc
       }, 0)
-
    }
 
    return <main className="todo-app main-layout">
@@ -44,8 +44,7 @@ export function TodoApp() {
          <h4>Tasks {!!todos?.length && `${getDoneCount()}/${todos.length}`}</h4>
 
          {!todos && <p>Loading your tasks...</p>}
-         {todos && !todos.length && !filterBy.title && <p className='empty-list'>No tasks have been created yet, add your first task above</p>}
-         {todos && !todos.length && filterBy.title && <p className='empty-list'>No results matching your search</p>}
+         {todos && !todos.length && <EmptyList isFiltered={!!filterBy.title} />}
          {!!todos?.length && <TodoList todos={todos} onToggleTodo={onToggleTodo} onUpdateTodo={onUpdateTodo} onRemoveTodo={removeTodo} />}
       </section >
 

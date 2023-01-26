@@ -46,7 +46,6 @@ export function Home() {
       } catch (err) {
          setAuthError(err.message)
       }
-
    }
 
    const onConfirmSignup = async (ev) => {
